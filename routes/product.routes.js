@@ -568,6 +568,22 @@ productsRouter.delete("/delete/:id",async(req,res)=>{
 // USER PRODUCT ROUTE FOR QUANTITY
 
 
+productsRouter.get("/:id", async(req,res) => {
+    
+
+    try {
+        const productID = req.params.id
+        const products = await ProductModel.findById({_id:productID})
+        res.send(products)
+    } 
+    
+    catch (err) {
+        console.log(err)
+            res.send({"message":"Something Went Wrong, Try After Sometime"})
+    }
+})
+
+
 productsRouter.patch("/quantity/:id",async(req,res)=>{
     const ID=req.params.id
     const { quantity}=req.body
