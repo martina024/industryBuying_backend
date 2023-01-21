@@ -16,7 +16,7 @@ productsRouter.get("/",async(req,res)=>{
     
     console.log(req.query)
     
-    if(search!=="undefined" && page && sortby!=="undefined"){
+    if(search!=="undefined" && page && sortby!=="undefined" && order!=="undefined"){
        
         try{
             if(sortby=="title"){
@@ -91,7 +91,9 @@ productsRouter.get("/",async(req,res)=>{
             }
 
             else if(sortby=="price"){
+                
                 if(order=="asc"){
+                  
                     if(limit){
                         const products=await ProductModel.find({
     
@@ -217,7 +219,7 @@ productsRouter.get("/",async(req,res)=>{
         }
     }
 
-    else if(sortby=="title" && page!=="undefined"){
+    else if(sortby=="title" && page!=="undefined" && order!=="undefined"){
       
         if(order =="asc"){
            
@@ -285,7 +287,7 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(sortby=="price" && page!=="undefined"){
+    else if(sortby=="price" && page!=="undefined" && order!=="undefined"){
         
        
         if(order =="asc"){
