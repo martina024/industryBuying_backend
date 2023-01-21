@@ -16,7 +16,8 @@ productsRouter.get("/",async(req,res)=>{
     
     console.log(req.query)
     
-    if(search && page && sortby){
+    if(search!=="undefined" && page && sortby!=="undefined"){
+       
         try{
             if(sortby=="title"){
                 if(order=="asc"){
@@ -169,7 +170,8 @@ productsRouter.get("/",async(req,res)=>{
         
     }
   
-    else if(search && page){
+    else if(search!=="undefined" && page!=="undefined"){
+       
         if(limit){
             try{
                 const products=await ProductModel.find({
@@ -215,7 +217,8 @@ productsRouter.get("/",async(req,res)=>{
         }
     }
 
-    else if(sortby=="title" && page){
+    else if(sortby=="title" && page!=="undefined"){
+      
         if(order =="asc"){
            
 
@@ -282,14 +285,16 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(sortby=="price" && page){
+    else if(sortby=="price" && page!=="undefined"){
+        
+       
         if(order =="asc"){
            
 
                 if(limit){
                     try{
                         const products=await ProductModel.find().sort({"price":1}).skip((page -1)*limit).limit(limit)
-                        console.log(products)
+                        // console.log(products)
                         res.send(products)
                     }
                     catch(err){
@@ -350,8 +355,8 @@ productsRouter.get("/",async(req,res)=>{
 
     
 
-    else if(sortby=="title" && order){
-       
+    else if(sortby=="title" && order!=="undefined"){
+        
         try{
             if(order=="asc"){
             const products=await ProductModel.find().sort({"title":1})
@@ -370,8 +375,8 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(sortby=="price" && order){
-       
+    else if(sortby=="price" && order!=="undefined"){
+        
         try{
             if(order=="asc"){
             const products=await ProductModel.find().sort({"price":1})
@@ -390,7 +395,8 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(search){
+    else if(search!=="undefined"){
+        
         try{
         
         const products=await ProductModel.find({
@@ -412,7 +418,8 @@ productsRouter.get("/",async(req,res)=>{
         }
     }
 
-    else if(page){
+    else if(page!=="undefined"){
+       
         try{
            if(limit){
             const products=await ProductModel.find().skip((page -1)*limit).limit(limit)
@@ -429,7 +436,9 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
+
     else if(filterby=="price"){
+        
         try{
             if(lt){
                 const products=await ProductModel.find({price:{$lte:lt}})
@@ -447,7 +456,8 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
-    else if(filterby=="brand" && value){
+    else if(filterby=="brand" && value!=="undefined"){
+        
         try{
             
                 const products=await ProductModel.find({"brand":value})
@@ -459,7 +469,8 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
-    else if(filterby=="category" && value){
+    else if(filterby=="category" && value!=="undefined"){
+       
         try{
             
                 const products=await ProductModel.find({"category":value})
@@ -471,7 +482,8 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
-    else if(filterby=="sub_category" && value){
+    else if(filterby=="sub_category" && value!=="undefined"){
+        
         try{
             
                 const products=await ProductModel.find({"sub_category":value})
@@ -484,6 +496,7 @@ productsRouter.get("/",async(req,res)=>{
         }
     }
     else{
+       
         try{
         
             const products=await ProductModel.find()
