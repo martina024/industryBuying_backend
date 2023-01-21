@@ -27,7 +27,7 @@ productsRouter.get("/",async(req,res)=>{
                                 {"title":{$regex:search,$options:"i"}},
                                 {"brand":{$regex:search,$options:"i"}},
                                 {"category":{$regex:search,$options:"i"}},
-                                {"sub_category":{$regex:search,$options:"i"}},
+                                
                                
                                 
                             ]
@@ -43,7 +43,7 @@ productsRouter.get("/",async(req,res)=>{
                                 {"title":{$regex:search,$options:"i"}},
                                 {"brand":{$regex:search,$options:"i"}},
                                 {"category":{$regex:search,$options:"i"}},
-                                {"sub_category":{$regex:search,$options:"i"}},
+                               
                                
                                 
                             ]
@@ -63,7 +63,7 @@ productsRouter.get("/",async(req,res)=>{
                             {"title":{$regex:search,$options:"i"}},
                             {"brand":{$regex:search,$options:"i"}},
                             {"category":{$regex:search,$options:"i"}},
-                            {"sub_category":{$regex:search,$options:"i"}},
+                           
                             
                         ]
                     }).skip((page -1)*limit).limit(limit).sort({"title":-1})
@@ -77,7 +77,7 @@ productsRouter.get("/",async(req,res)=>{
                             {"title":{$regex:search,$options:"i"}},
                             {"brand":{$regex:search,$options:"i"}},
                             {"category":{$regex:search,$options:"i"}},
-                            {"sub_category":{$regex:search,$options:"i"}},
+                           
                             
                         ]
                     }).skip((page -1)*limit).limit(12).sort({"title":-1})
@@ -98,7 +98,7 @@ productsRouter.get("/",async(req,res)=>{
                                 {"title":{$regex:search,$options:"i"}},
                                 {"brand":{$regex:search,$options:"i"}},
                                 {"category":{$regex:search,$options:"i"}},
-                                {"sub_category":{$regex:search,$options:"i"}},
+                                
                                
                                 
                             ]
@@ -114,7 +114,6 @@ productsRouter.get("/",async(req,res)=>{
                                 {"title":{$regex:search,$options:"i"}},
                                 {"brand":{$regex:search,$options:"i"}},
                                 {"category":{$regex:search,$options:"i"}},
-                                {"sub_category":{$regex:search,$options:"i"}},
                                
                                 
                             ]
@@ -134,7 +133,7 @@ productsRouter.get("/",async(req,res)=>{
                             {"title":{$regex:search,$options:"i"}},
                             {"brand":{$regex:search,$options:"i"}},
                             {"category":{$regex:search,$options:"i"}},
-                            {"sub_category":{$regex:search,$options:"i"}},
+                           
                             
                         ]
                     }).skip((page -1)*limit).limit(limit).sort({"price":-1})
@@ -148,7 +147,7 @@ productsRouter.get("/",async(req,res)=>{
                             {"title":{$regex:search,$options:"i"}},
                             {"brand":{$regex:search,$options:"i"}},
                             {"category":{$regex:search,$options:"i"}},
-                            {"sub_category":{$regex:search,$options:"i"}},
+                           
                             
                         ]
                     }).skip((page -1)*limit).limit(12).sort({"price":-1})
@@ -179,7 +178,7 @@ productsRouter.get("/",async(req,res)=>{
                         {"title":{$regex:search,$options:"i"}},
                         {"brand":{$regex:search,$options:"i"}},
                         {"category":{$regex:search,$options:"i"}},
-                        {"sub_category":{$regex:search,$options:"i"}},
+                        
                        
                         
                     ]
@@ -202,8 +201,7 @@ productsRouter.get("/",async(req,res)=>{
                         {"title":{$regex:search,$options:"i"}},
                         {"brand":{$regex:search,$options:"i"}},
                         {"category":{$regex:search,$options:"i"}},
-                        {"sub_category":{$regex:search,$options:"i"}},
-                       
+                        
                         
                     ]
                 }).skip((page -1)*limit).limit(12)
@@ -401,7 +399,7 @@ productsRouter.get("/",async(req,res)=>{
                 {"title":{$regex:search,$options:"i"}},
                 {"brand":{$regex:search,$options:"i"}},
                 {"category":{$regex:search,$options:"i"}},
-                {"sub_category":{$regex:search,$options:"i"}},
+                
                 
             ]
         })
