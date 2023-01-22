@@ -16,7 +16,7 @@ productsRouter.get("/",async(req,res)=>{
     
     console.log(req.query)
     
-    if(search!=="undefined" && page && sortby!=="undefined" && order!=="undefined"){
+    if(search!=="" && page && sortby!=="" && order!==""){
        
         try{
             if(sortby=="title"){
@@ -172,7 +172,7 @@ productsRouter.get("/",async(req,res)=>{
         
     }
   
-    else if(search!=="undefined" && page!=="undefined"){
+    else if(search!=="" && page!==""){
        
         if(limit){
             try{
@@ -214,12 +214,12 @@ productsRouter.get("/",async(req,res)=>{
             }
             catch(err){
                 console.log(err)
-                res.send({"message":"Something went wrong"})
+                res.send({"message":"Something went "})
             } 
         }
     }
 
-    else if(sortby=="title" && page!=="undefined" && order!=="undefined"){
+    else if(sortby=="title" && page!=="" && order!==""){
       
         if(order =="asc"){
            
@@ -287,7 +287,7 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(sortby=="price" && page!=="undefined" && order!=="undefined"){
+    else if(sortby=="price" && page!=="" && order!==""){
         
        
         if(order =="asc"){
@@ -357,7 +357,7 @@ productsRouter.get("/",async(req,res)=>{
 
     
 
-    else if(sortby=="title" && order!=="undefined"){
+    else if(sortby=="title" && order!==""){
         
         try{
             if(order=="asc"){
@@ -377,7 +377,7 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(sortby=="price" && order!=="undefined"){
+    else if(sortby=="price" && order!==""){
         
         try{
             if(order=="asc"){
@@ -397,7 +397,7 @@ productsRouter.get("/",async(req,res)=>{
     }
 
 
-    else if(search!=="undefined"){
+    else if(search!==""){
         
         try{
         
@@ -420,7 +420,7 @@ productsRouter.get("/",async(req,res)=>{
         }
     }
 
-    else if(page!=="undefined"){
+    else if(page!==""){
        
         try{
            if(limit){
@@ -458,7 +458,7 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
-    else if(filterby=="brand" && value!=="undefined"){
+    else if(filterby=="brand" && value!==""){
         
         try{
             
@@ -471,7 +471,7 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
-    else if(filterby=="category" && value!=="undefined"){
+    else if(filterby=="category" && value!==""){
        
         try{
             
@@ -484,7 +484,7 @@ productsRouter.get("/",async(req,res)=>{
             res.send({"message":"Something went wrong"})
         }
     }
-    else if(filterby=="sub_category" && value!=="undefined"){
+    else if(filterby=="sub_category" && value!==""){
         
         try{
             
