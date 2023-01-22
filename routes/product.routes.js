@@ -565,12 +565,29 @@ productsRouter.delete("/delete/:id",async(req,res)=>{
 })
 
 
+// cart
+
+productsRouter.get("/cart",async(req,res)=>{
+   
+    try {
+        const product=await ProductModel.find({"quantity":{$gt:0}})
+        console.log(product)
+        res.send(product)
+    
+    } 
+    catch (err) {
+        console.log(err)
+        res.send({"message":"Something went wrong"})
+    }
+})
+
+
 // USER PRODUCT ROUTE FOR QUANTITY
 
 
 productsRouter.get("/:id", async(req,res) => {
     
-
+   
     try {
         const productID = req.params.id
         const products = await ProductModel.findById({_id:productID})
@@ -604,21 +621,7 @@ productsRouter.patch("/quantity/:id",async(req,res)=>{
    
 })
 
-// cart
 
-productsRouter.get("/cart",async(req,res)=>{
-    
-    try {
-        const product=await ProductModel.find({"quantity":{$gt:0}})
-        console.log(product)
-        res.send(product)
-    
-    } 
-    catch (err) {
-        console.log(err)
-        res.send({"message":"Something went wrong"})
-    }
-})
 
 
 module.exports={productsRouter}
